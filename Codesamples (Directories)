@@ -1,6 +1,6 @@
 # Powershellsamples
 # Powershell Code/Scripts
-# Folders
+
 
 Get-ChildItem \\Server\Share\Folder -Directory | Select-Object -Property name |  convertto-csv -NoTypeInformation  | Out-File c:\temp\mydirectorylist.csv
 
