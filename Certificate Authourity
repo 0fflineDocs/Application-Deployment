@@ -1,0 +1,43 @@
+## XAML ##
+<Window x:Class="WpfApplication5.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApplication4"
+        mc:Ignorable="d"
+        Title="Certificate Authority" Height="350" Width="519">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="66*"/>
+            <ColumnDefinition Width="293*"/>
+            <ColumnDefinition Width="152*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Background="White" Margin="0,0,10,38" Grid.ColumnSpan="3">
+
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="18*"/>
+
+            </Grid.ColumnDefinitions>
+            <Image x:Name="image_luna" HorizontalAlignment="Left" Height="100" Margin="391,10,0,0" VerticalAlignment="Top" Width="100" Source="C:\Users\Simon\Desktop\PS\luna.png "/>
+            <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="150,286,0,-27" TextWrapping="Wrap" VerticalAlignment="Top" Height="22" Width="91" FontWeight="Bold"><Run FontWeight="Normal" Text="Computername"/><Run Text=":"/></TextBlock>
+            <TextBox x:Name="ComputerName" HorizontalAlignment="Left" Height="23" Margin="263,286,0,-28" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="102"/>
+            <Button x:Name="button_usrc" Content="Användarcert" HorizontalAlignment="Left" Margin="107,251,0,0" VerticalAlignment="Top" Width="81" Height="20"/>
+            <Button x:Name="button_comc" Content="Datorcert" HorizontalAlignment="Left" Margin="214,251,0,0" VerticalAlignment="Top" Width="76" Height="20"/>
+            <Button x:Name="button_prnt" Content="Printmgmt" HorizontalAlignment="Left" Margin="315,251,0,0" VerticalAlignment="Top" Width="75"/>
+            <Button x:Name="button_iidcache" Content="Cache" HorizontalAlignment="Left" Margin="107,207,0,0" VerticalAlignment="Top" Width="81" Height="20"/>
+            <Button x:Name="button_iidtrace" Content="Trace" HorizontalAlignment="Left" Margin="214,207,0,0" VerticalAlignment="Top" Width="76" Height="20" RenderTransformOrigin="1.051,-1.002"/>
+            <Button x:Name="button_tracesrvc" Content="Trace-Service" HorizontalAlignment="Left" Margin="315,207,0,0" VerticalAlignment="Top" Width="75"/>
+
+
+
+
+
+            <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="15,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="22" Width="275" FontFamily="Courier New"><Run Text="GGWP!"/><Run Text=" "/><Run Text="This is Ryko's awesome PS-Tool."/><LineBreak/></TextBlock>
+            <Image x:Name="image_iid" HorizontalAlignment="Left" Height="41" Margin="450,267,0,-27" VerticalAlignment="Top" Width="41" Source="C:\Users\Simon\Desktop\PS\netid.jpg "/>
+
+        </Grid>
+
+    </Grid>
+</Window>
