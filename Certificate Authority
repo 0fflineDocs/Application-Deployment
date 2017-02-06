@@ -1,6 +1,6 @@
-#REVISION - [2017-02-01] 
+#REVISION - [2017-02-06] 
 
-#ERASE ALL THIS AND PUT XAML BELOW between the @" "@ 
+ #ERASE ALL THIS AND PUT XAML BELOW between the @" "@ 
 $inputXML = @"
 <Window x:Class="WpfApplication4.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -9,7 +9,7 @@ $inputXML = @"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApplication4"
         mc:Ignorable="d"
-        Title="Certificate Authority" Height="350" Width="519">
+        Title="Certificate Authority" Height="360" Width="519">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="66*"/>
@@ -19,18 +19,17 @@ $inputXML = @"
         <Grid Background="White" Margin="0,0,10,38" Grid.ColumnSpan="3">
 
 
-            <Grid.ColumnDefinitions>
+             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="18*"/>
 
             </Grid.ColumnDefinitions>
-            
-            <Image x:Name="image_luna" HorizontalAlignment="Left" Height="100" Margin="391,10,0,0" VerticalAlignment="Top" Width="100" Source="C:\Users\Simon\Desktop\PS\luna.png "/>
+         <Image x:Name="image_luna" HorizontalAlignment="Left" Height="100" Margin="391,10,0,0" VerticalAlignment="Top" Width="100" Source="C:\Users\Simon\Desktop\PS\luna.png "/>
          <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="118,287,0,-28" TextWrapping="Wrap" VerticalAlignment="Top" Height="22" Width="91" FontWeight="Bold"><Run FontWeight="Normal" Text="Computername"/><Run Text=":"/></TextBlock>
-            <TextBox x:Name="ComputerName" HorizontalAlignment="Left" Height="23" Margin="231,287,0,-29" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="102"/>
+              <TextBox x:Name="ComputerName" HorizontalAlignment="Left" Height="23" Margin="231,285,0,-27" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="102"/>
             <Button x:Name="button_usrc" Content="Usercert" HorizontalAlignment="Left" Margin="73,251,0,0" VerticalAlignment="Top" Width="81" Height="20"/>
             <Button x:Name="button_comc" Content="Compcert" HorizontalAlignment="Left" Margin="180,251,0,0" VerticalAlignment="Top" Width="76" Height="20"/>
             <Button x:Name="button_prnt" Content="Printmgmt" HorizontalAlignment="Left" Margin="281,251,0,0" VerticalAlignment="Top" Width="75"/>
-            <Button x:Name="button_iidcache" Content="Cache" HorizontalAlignment="Left" Margin="415,251,0,0" VerticalAlignment="Top" Width="76" Height="20"/>
+            <Button x:Name="button_iidcfg" Content="Config" HorizontalAlignment="Left" Margin="415,251,0,0" VerticalAlignment="Top" Width="76" Height="20"/>
             <Button x:Name="button_iidtrace" Content="Trace" HorizontalAlignment="Left" Margin="415,221,0,0" VerticalAlignment="Top" Width="76" Height="20" RenderTransformOrigin="1.051,-1.002"/>
             <Button x:Name="button_tracesrvc" Content="Trace-Service" HorizontalAlignment="Left" Margin="415,191,0,0" VerticalAlignment="Top" Width="76"/>
             <TextBlock x:Name="GGWP" HorizontalAlignment="Left" Margin="435,287,0,-28" TextWrapping="Wrap" VerticalAlignment="Top" Height="22" Width="64" FontFamily="Courier New" FontSize="14"><Run Text="GGWP!"/><LineBreak/></TextBlock>
@@ -41,8 +40,12 @@ $inputXML = @"
             <Button x:Name="button_taskmgr" Content="Taskmgr" HorizontalAlignment="Left" Margin="281,221,0,0" VerticalAlignment="Top" Width="75" Height="20"/>
             <Button x:Name="button_pshell" Content="PShell" HorizontalAlignment="Left" Margin="73,221,0,0" VerticalAlignment="Top" Width="81" Height="20"/>
             <Image x:Name="image_ctx" HorizontalAlignment="Left" Height="41" Margin="10,102,0,0" VerticalAlignment="Top" Width="41" Source="C:\Users\Simon\Desktop\PS\ctx.jpg "/>
-
+            <Button x:Name="button_procmon" Content="Procmon" HorizontalAlignment="Left" Margin="73,191,0,0" VerticalAlignment="Top" Width="81" Height="20"/>
+            <Button x:Name="button_procexp" Content="Procexp" HorizontalAlignment="Left" Margin="180,191,0,0" VerticalAlignment="Top" Width="76" Height="20"/>
+            <Button x:Name="button_cardcache" Content="Cache" HorizontalAlignment="Left" Margin="281,191,0,0" VerticalAlignment="Top" Width="76" Height="20"/>
+  
         </Grid>
+
     </Grid>
 </Window>
 "@
@@ -156,7 +159,59 @@ $WPFbutton_taskmgr.Add_Click({
 Taskmgr
 })
                                                                  
-     
+#iidcache
+Function iidcache {
+param ($exepath = "C:\Windows\Temp")
+Invoke-Item $exePath
+}
+
+$WPFComputerName.Text = $env:COMPUTERNAME
+
+$WPFbutton_cardcache.Add_Click({
+iidcache
+})
+      
+#iidtrace
+Function iidtrace {
+param ($exePath = "C:\Users\sha057\AppData\LocalLow\iid")
+Invoke-Item $exePath
+}
+
+$WPFComputerName.Text = $env:COMPUTERNAME
+
+$WPFbutton_iidtrace.Add_Click({
+iidtrace
+}) 
+ 
+#iidservice
+Function iidservice {
+param ($exePath =  "C:\Program Files\Net iD\iid.exe")
+Start-Process -Filepath $exePath -ArgumentList $exePath
+}
+
+$WPFComputerName.Text = $env:COMPUTERNAME
+
+$WPFbutton_iidtrace.Add_Click({
+iidservice
+}) 
+  
+ #iidcfg
+Function iidcfg {
+param ($exePath =  "C:\Users\sha057\AppData\Roaming\iid")
+Invoke-Item $exePath
+}
+
+$WPFComputerName.Text = $env:COMPUTERNAME
+
+$WPFbutton_iidcfg.Add_Click({
+iidcfg
+}) 
+                       
+        
+#button_procexp 
+               
+#button_procmon
+
 #Reference 
  
 #Adding items to a dropdown/combo box
