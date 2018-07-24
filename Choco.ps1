@@ -19,7 +19,7 @@ else {
     Write-Verbose "chocolatey is already installed. yay!"
 }
 Write-Verbose "installing packages from internal list"
-$pkgs = "7zip,notepadplusplus"
+$pkgs = "7zip,notepadplusplus,firefox,vscode,vscode-powershell"
 $count = 0
 foreach ($pkg in $pkgs -split ',') {
     if ($WhatIfPreference) {
